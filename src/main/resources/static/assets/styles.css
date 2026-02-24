@@ -1,0 +1,599 @@
+/* ----------------------------------------------------------
+   Design Tokens
+---------------------------------------------------------- */
+
+:root {
+    --bg: #f6f6f7;
+    --surface: #ffffff;
+    --text: #1f2328;
+    --muted: rgba(31, 35, 40, 0.65);
+
+    --primary: #0077cc;
+    --primary-hover: #005fa3;
+
+    --border: rgba(31, 35, 40, 0.10);
+
+    --radius: 10px;
+    --radius-sm: 8px;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+
+    --container: 900px;
+}
+
+/* ----------------------------------------------------------
+   Base Styles
+---------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+}
+
+/* Auswahl (kleines Detail, aber wirkt) */
+::selection {
+    background: rgba(0,119,204,0.18);
+}
+
+/* ----------------------------------------------------------
+   Headings & Text
+---------------------------------------------------------- */
+
+h1, h2, h3 {
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    color: var(--text);
+}
+
+h1 {
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    margin-bottom: var(--space-4);
+}
+
+h2 {
+    font-size: clamp(1.25rem, 1.9vw, 1.5rem);
+    margin-bottom: var(--space-2);
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-2);
+}
+
+p {
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+    font-size: 1rem;
+    color: var(--text);
+}
+
+small, .muted {
+    color: var(--muted);
+}
+
+/* ----------------------------------------------------------
+   Links (Text-Links)
+---------------------------------------------------------- */
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:not(.btn):hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+/* Tastatur-Navigation: Pflicht für „echte“ Projekte */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid rgba(0,119,204,0.25);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+/* ----------------------------------------------------------
+   Header / Top Actions
+---------------------------------------------------------- */
+
+.top-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+/* ----------------------------------------------------------
+   Cards (Article List)
+---------------------------------------------------------- */
+
+.article-card {
+    background: var(--surface);
+    padding: var(--space-5);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: var(--space-4);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(0,119,204,0.20);
+}
+
+.article-card h2 {
+    margin-bottom: var(--space-2);
+}
+
+.article-card .date {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: var(--space-3);
+}
+
+/* Preview Text: bessere Lesbarkeit */
+.article-card p {
+    color: rgba(31,35,40,0.85);
+}
+
+/* ----------------------------------------------------------
+   Single Article Page
+---------------------------------------------------------- */
+
+.article-container {
+    background: var(--surface);
+    padding: var(--space-6);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.article-container h1 {
+    margin-bottom: var(--space-3);
+}
+
+.article-container .date {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: var(--space-5);
+}
+
+.article-container p {
+    font-size: 1.05rem;
+    color: rgba(31,35,40,0.9);
+}
+
+/* ----------------------------------------------------------
+   Buttons (Actions)
+---------------------------------------------------------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 6px 16px rgba(0,119,204,0.18);
+
+    transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0,95,163,0.20);
+}
+
+.btn:active {
+    transform: translateY(0px);
+}
+
+/* Link als Button nutzen ohne neue Klasse? Dann wenigstens so: */
+a.btn:hover {
+    text-decoration: none;
+}
+
+/* ----------------------------------------------------------
+   Responsive Optimizations
+---------------------------------------------------------- */
+
+@media (max-width: 600px) {
+    body {
+        padding: var(--space-4);
+    }
+
+    .article-card {
+        padding: var(--space-4);
+    }
+
+    .article-container {
+        padding: var(--space-5);
+    }
+}
+
+/* Motion-Reduce: Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ----------------------------------------------------------
+   Auth / Header Section
+---------------------------------------------------------- */
+
+.top-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Logout oben, dezenter */
+.logout-link {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.logout-link:hover {
+    color: var(--primary);
+}
+
+/* Welcome + Dashboard Block */
+.admin-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.8rem;
+}
+
+.welcome-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* ----------------------------------------------------------
+   Auth Pages (Login / Logout)
+---------------------------------------------------------- */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.auth-card {
+    background: var(--surface);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+}
+
+.auth-card h1 {
+    margin-bottom: 1rem;
+}
+
+.auth-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background: rgba(0,119,204,0.08);
+}
+
+.logout-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.logout-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* ----------------------------------------------------------
+   Clean Modern Login
+---------------------------------------------------------- */
+
+.auth-card {
+    max-width: 380px;
+    padding: 2.2rem;
+    border-radius: 14px;
+}
+
+.auth-header {
+    margin-bottom: 1.8rem;
+}
+
+.auth-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.auth-subtitle {
+    font-size: 0.95rem;
+    opacity: 0.65;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #f9fafb;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0,119,204,0.12);
+}
+
+.btn-wide {
+    margin-top: 0.4rem;
+    padding: 0.9rem;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+/* ----------------------------------------------------------
+   Error Pages (403 / 404 / 500)
+---------------------------------------------------------- */
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem;
+}
+
+.error-card {
+    background: var(--surface);
+    padding: 3rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.error-code {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: rgba(0,119,204,0.25);
+    margin-bottom: 1rem;
+}
+
+.error-card h1 {
+    margin-bottom: 0.6rem;
+    font-size: 1.6rem;
+}
+
+.error-text {
+    opacity: 0.7;
+    margin-bottom: 1.8rem;
+    font-size: 0.95rem;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* ----------------------------------------------------------
+   Admin Dashboard
+---------------------------------------------------------- */
+
+.admin-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.admin-title {
+    margin-bottom: 0.2rem;
+}
+
+.admin-subtitle {
+    margin-bottom: 0;
+}
+
+.admin-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 0.75rem;
+}
+
+.admin-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    padding: 0.9rem 0.85rem;
+    border-radius: 10px;
+    transition: background 0.15s ease;
+}
+
+.admin-row:not(.admin-row--head) + .admin-row:not(.admin-row--head) {
+    border-top: 1px solid var(--border);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.admin-row--head {
+    padding: 0.7rem 0.85rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.admin-row:hover:not(.admin-row--head) {
+    background: rgba(0,0,0,0.02);
+}
+
+.col-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.title-line {
+    font-weight: 650;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.meta-line {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.col-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    white-space: nowrap;
+}
+
+.action-link {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.action-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.action-link--danger {
+    color: rgba(176, 0, 32, 0.9);
+}
+
+.action-link--danger:hover {
+    color: rgba(176, 0, 32, 1);
+}
+
+/* Link-styled button (für Logout / Delete) */
+.inline-form {
+    display: inline;
+}
+
+.link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.link-btn:hover {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Empty state */
+.empty-state {
+    padding: 2rem 1.25rem;
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin – Create Article</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<h1>Create New Article</h1>
+
+<nav style="margin-bottom: 2rem;">
+    <a href="@{/admin/dashboard}">Dashboard</a> |
+    <a href="@{/admin/add_article}">Create Article</a> |
+    <a href="@{/admin/edit_article}">Edit Articles</a> |
+    <a href="@{/logout}">Logout</a>
+</nav>
+
+<label for="title">Title</label>
+<input type="text" id="title" name="title" required>
+
+<label for="content">Content</label>
+<textarea id="content" name="content" rows="12" required></textarea>
+
+<button class="btn" type="submit">Save Article</button>
+</form>
+
+</body>
+</html>

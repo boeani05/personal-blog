@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Access denied</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<div class="error-container">
+
+    <div class="error-card">
+
+        <div class="error-code">403</div>
+
+        <h1>Access denied</h1>
+
+        <p class="error-text">
+            You don’t have permission to access this resource.
+        </p>
+
+        <div class="error-actions">
+            <a th:href="@{/}" class="btn">Back to Home</a>
+            <a th:href="@{/login}" class="btn btn-secondary">Admin Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

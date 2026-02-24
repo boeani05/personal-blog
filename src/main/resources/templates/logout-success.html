@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Logged Out</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <div class="auth-card">
+        <h1>You’ve been logged out</h1>
+
+        <p class="muted">
+            Your session has ended successfully.
+        </p>
+
+        <div class="auth-actions">
+            <a th:href="@{/}" class="btn">Back to Home</a>
+            <a th:href="@{/login}" class="btn btn-secondary">Login Again</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
