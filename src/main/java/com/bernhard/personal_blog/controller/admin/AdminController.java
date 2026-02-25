@@ -13,12 +13,12 @@ public class AdminController {
         return "admin/dashboard";
     }
 
-    @GetMapping("/add_article")
+    @GetMapping("/addArticle")
     public String addArticle() {
         return "admin/addArticle";
     }
 
-    @GetMapping("/edit_article")
+    @GetMapping("/editArticle")
     public String editArticle() {
         return "admin/editArticle";
     }
