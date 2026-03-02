@@ -2,8 +2,11 @@ package com.bernhard.personal_blog.repo;
 
 import com.bernhard.personal_blog.entity.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories
+import java.util.List;
+
 public interface ArticleRepository extends JpaRepository<Article, Long> {
+    boolean existsBySlug(String slug);
+
+    List<Article> findAllByOrderByPublishedAtDesc();
 }
