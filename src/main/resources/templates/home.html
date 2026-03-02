@@ -44,7 +44,7 @@
 
     <p th:text="${article.content.length() &gt; 120 ? article.content.substring(0,120) + '...' : article.content}"></p>
 
-    <a href="@{/public/{id}(id=${article.id})}">Read more</a>
+    <a th:href="@{/article/{id}(id=${article.id})}">Read more</a>
 </div>
 
 </body>
