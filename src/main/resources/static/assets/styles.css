@@ -671,3 +671,26 @@ a.btn:hover {
     content: "⚠ ";
     font-weight: 700;
 }
+/* ----------------------------------------------------------
+   Field errors (Add Article)
+---------------------------------------------------------- */
+
+.field-hint {
+    font-size: 0.9rem;
+    color: rgba(176, 0, 32, 0.9);
+    margin-top: 0.25rem;
+}
+
+/* highlight invalid inputs */
+.admin-form input.is-invalid,
+.admin-form textarea.is-invalid {
+    border-color: rgba(176, 0, 32, 0.45);
+    background: rgba(176, 0, 32, 0.04);
+    box-shadow: 0 0 0 3px rgba(176, 0, 32, 0.10);
+}
+
+.admin-form input.is-invalid:focus,
+.admin-form textarea.is-invalid:focus {
+    border-color: rgba(176, 0, 32, 0.55);
+    box-shadow: 0 0 0 3px rgba(176, 0, 32, 0.14);
+}
