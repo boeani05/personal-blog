@@ -33,7 +33,8 @@ public class Article {
     )
     private String slug;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ArticleStatus articleStatus;
 
     @Column(nullable = false)

@@ -34,8 +34,22 @@
     </div>
 </div>
 
-<div th:if="${#lists.isEmpty(articles)}">
-    <p>No articles available yet.</p>
+<div th:if="${#lists.isEmpty(articles)}" class="empty-state-card">
+
+    <div class="empty-icon">📝</div>
+
+    <h2>No posts yet</h2>
+
+    <p class="muted">
+        This space is waiting for your first article.
+    </p>
+
+    <a sec:authorize="isAuthenticated()"
+       th:href="@{/admin/addArticle}"
+       class="btn">
+        Create your first post
+    </a>
+
 </div>
 
 <div th:each="article : ${articles}" class="article-card">

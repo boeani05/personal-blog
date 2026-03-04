@@ -6,9 +6,13 @@
 </head>
 <body>
 
-<a th:href="@{/}">← Back to overview</a>
 
 <div class="article-container">
+    <a th:href="@{/}" class="back-link">
+        <span class="back-icon">←</span>
+        <span>Back to overview</span>
+    </a>
+
     <h1 th:text="${article.title}">Title</h1>
     <p class="date" th:text="${article.publishedAt}"></p>
     <p th:text="${article.content}"></p>

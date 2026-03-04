@@ -15,21 +15,35 @@
         </div>
 
         <div class="admin-actions">
-            <a th:href="@{/admin/addArticle}" class="btn">+ Create</a>
-            <a th:href="@{/admin/dashboard}" class="btn">Dashboard</a>
+            <a th:href="@{/admin/addArticle}" class="btn">+ Add</a>
+            <a th:href="@{/admin/dashboard}" class="btn btn-secondary">Back</a>
 
             <form th:action="@{/logout}" method="post" class="inline-form">
                 <input type="hidden"
                        th:name="${_csrf.parameterName}"
-                       th:value="${_csrf.token}" />
+                       th:value="${_csrf.token}"/>
                 <button type="submit" class="link-btn">Logout</button>
             </form>
         </div>
     </div>
 
-    <div class="admin-card">
-        <p class="muted">A list of all articles will appear here later.</p>
-    </div>
+    <form th:action="@{/admin/editArticle}" method="post" th:object="${articleToEdit}" class="admin-form">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+        <input type="hidden" th:field="*{id}">
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input id="title" type="text" th:field="*{title}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea id="content" type="text" th:field="*{content}" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Save</button>
+    </form>
 
 </div>
 
