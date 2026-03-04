@@ -27,6 +27,10 @@ This is a modern, secure blog platform that allows authenticated administrators 
 ### Project Origin
 This project is based on the [Personal Blog project from roadmap.sh](https://roadmap.sh/projects/personal-blog), which provides the project specification and requirements.
 
+## ⚠️ Important Notice
+
+**Admin Access**: Only **Bernhard Oberlechner** has administrative access to create, edit, and manage articles. The admin credentials are environment-based and must be kept secure. The blog is publicly readable but restricted from editing.
+
 ## ✨ Features
 
 ### Public Interface
@@ -35,12 +39,14 @@ This project is based on the [Personal Blog project from roadmap.sh](https://roa
 - 🔍 Browse all published articles on the home page
 
 ### Admin Dashboard
-- 🔐 Secure login with environment-based credentials
+- 🔐 Secure login with environment-based credentials (Owner exclusive)
 - ➕ Create new articles with automatic slug generation
 - ✏️ Edit existing articles
 - 🗑️ Delete articles
 - 📊 Dashboard overview of all articles
 - 🚪 Secure logout
+
+**Only the blog owner (Bernhard Oberlechner) can access the admin dashboard.**
 
 ### Security Features
 - Spring Security with BCrypt password encryption
@@ -61,6 +67,9 @@ This project is based on the [Personal Blog project from roadmap.sh](https://roa
 
 ## 🚀 Getting Started
 
+### 🔐 Admin Access Notice
+This blog is **publicly readable**. However, only **Bernhard Oberlechner** has admin credentials for creating, editing, and deleting articles. No other users can log in to the admin panel.
+
 ### Prerequisites
 - Java 21+
 - Maven 3.9+
@@ -71,38 +80,22 @@ This project is based on the [Personal Blog project from roadmap.sh](https://roa
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/boeani05/personal-blog.git
    cd personal-blog
    ```
-
-2. **Set up environment variables:**
-   ```bash
-   cp .env.example .env
-   ```
+2. **Set env-variables:**
+    * Make sure to set some env variables for:
+      * The database
+      * The username
+      * The password
+    * Otherwise, the program can't start
    
-   Edit `.env` and set your values:
-   ```env
-   # Admin Credentials
-   BLOG_ADMIN_USERNAME=your_admin_username
-   BLOG_ADMIN_PASSWORD=YourSecurePassword123!
-
-   # Database Configuration
-   DB_URL=jdbc:postgresql://localhost:5432/blogdb
-   DB_USERNAME=postgres
-   DB_PASSWORD=your_db_password
-   ```
-
-3. **Create the PostgreSQL database:**
-   ```bash
-   createdb -U postgres blogdb
-   ```
-
-4. **Build the project:**
+3. **Build the project:**
    ```bash
    mvn clean install
    ```
 
-5. **Run the application:**
+4. **Run the application:**
    ```bash
    mvn spring-boot:run
    ```
@@ -113,9 +106,9 @@ This project is based on the [Personal Blog project from roadmap.sh](https://roa
    java -jar target/personal-blog-0.0.1-SNAPSHOT.jar
    ```
 
-6. **Access the application:**
-   - Home: `http://localhost:8080`
-   - Admin Dashboard: `http://localhost:8080/admin/dashboard`
+5. **Access the application:**
+   - Home (Public): `http://localhost:8080`
+   - Admin Dashboard (Owner Only): `http://localhost:8080/admin/dashboard`
    - Login: `http://localhost:8080/login`
 
 ## 📁 Project Structure
@@ -196,6 +189,7 @@ These should **never** be committed to version control. The `.gitignore` file ex
 ### Password Security
 - Passwords are hashed using BCrypt with Spring Security
 - Default cost factor ensures strong hashing
+- Admin credentials are stored in environment variables, not in code or database
 
 ## 📊 Database Schema
 
@@ -260,31 +254,6 @@ Logs are configured via `logback-spring.xml`:
   - Hibernate: INFO
   - SQL: DEBUG (only SQL statements, not values)
 
-## 🌐 Environment Configuration
-
-The application can be configured via `application.properties` and environment variables:
-
-```properties
-# Application Name
-spring.application.name=personal-blog
-
-# Database
-spring.datasource.url=${DB_URL:jdbc:postgresql://localhost:5432/blogdb}
-spring.datasource.username=${DB_USERNAME:postgres}
-spring.datasource.password=${DB_PASSWORD:postgres}
-
-# JPA/Hibernate
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=false
-spring.jpa.properties.hibernate.format_sql=true
-spring.jpa.open-in-view=false
-
-# Security
-server.error.include-message=never
-server.error.include-binding-errors=never
-server.error.include-stacktrace=never
-server.error.include-exception=false
-```
 
 ## 🚢 Deployment
 

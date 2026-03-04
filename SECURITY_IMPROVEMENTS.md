@@ -9,7 +9,6 @@ Alle sensiblen Daten MÜSSEN über Umgebungsvariablen konfiguriert werden:
 # Windows PowerShell
 $env:BLOG_ADMIN_USERNAME = "admin"
 $env:BLOG_ADMIN_PASSWORD = "SecurePassword123!"
-$env:DB_URL = "jdbc:postgresql://localhost:5432/blogdb"
 $env:DB_USERNAME = "postgres"
 $env:DB_PASSWORD = "your_db_password"
 ```

@@ -60,8 +60,10 @@ public class SecurityConfig {
         String username = System.getenv("DB_USERNAME");
         String password = System.getenv("DB_PASSWORD");
 
+        // Only create admin user if both credentials are provided via environment variables
         if (username == null || username.isBlank() || password == null || password.isBlank()) {
-            throw new IllegalStateException("\nSet BLOG_ADMIN_USERNAME and BLOG_ADMIN_PASSWORD env vars.");
+            // Return an empty manager - no users can log in
+            return new InMemoryUserDetailsManager();
         }
 
         UserDetails admin = User
