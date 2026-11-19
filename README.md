@@ -327,7 +327,7 @@ This project is provided as-is for educational and personal use.
 
 ## 👨‍💻 Authors
 
-- **Backend Development & Problem-Solving**: Bernhard Erlacher
+- **Backend Development & Problem-Solving**: Bernhard Oberlechner
 - **Frontend Templates & Code Refinement**: AI-Assisted
 - **Project Specification**: Based on [roadmap.sh Personal Blog](https://roadmap.sh/projects/personal-blog)
 
